@@ -51,9 +51,8 @@
 			return this.time ? new Date(this.time) : new Date(epoch_rounded_to_minute());
 		},
 		set: function(date_val) {
-			// checking to see if date_val has method getTime otherwise use now
-			date_val = date_val && ng.isObject(date_val) && ng.isFunction(date_val.getTime) ? date_val : epoch_rounded_to_minute()
-			this.time = date_val.getTime();
+			// checking to see if date_val has method getTime otherwise use now ~ oops that wasn't tested
+			this.time = date_val && ng.isObject(date_val) && ng.isFunction(date_val.getTime) ? date_val.getTime() : epoch_rounded_to_minute();
 		}
 	});
 
@@ -99,7 +98,7 @@
 		}
 	});
 
-	// helpers...
+	// view helpers... todo ~ move to real properties as the guid never changes
 	
 	Object.defineProperty(ac_model.prototype, "color", {
 		/* string */
