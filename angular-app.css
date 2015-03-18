@@ -1,0 +1,86 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.column {
+	float: left;
+	width: 30%;
+}
+
+.column-clickable {
+	margin-right: 5%;
+}
+
+.column ul {
+	list-style: none;
+	padding:0;
+	margin: 0 0 100px 0;
+}
+
+.column-clickable ul > :hover {
+	cursor: pointer;
+}
+
+.column ul > li {
+	border: 1px solid #FA0;
+	padding:0;
+	margin: 0 0 5px 0;
+}
+
+.column ul > li >  div {
+	padding: 0 10px;
+}
+
+.messages {
+	margin: 0 25%;
+	padding: 10px;
+	text-align: center;
+}
+
+.messages .error {
+	color: #C90000;
+}
+
+.messages .info {
+	color: #0000C9;
+}
+
+.small {
+	font-size: 75%;
+}
+
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}

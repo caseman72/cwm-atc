@@ -1,0 +1,53 @@
+<div class="messages">
+	<span ng-hide="error.landing || info.help">&nbsp;</span>
+	<span class="error" ng-show="error.landing">Error! You cannot land while a plane is landing.</span>
+	<span class="info" ng-show="info.help">Add Planes by clinking abbreviated links.<br/>Click block to <b>Land</b>, Click block to <b>Arrive</b>.</span>
+</div>
+
+<div class="column column-clickable">
+	<h3>
+		Waiting
+		&nbsp;
+		<a href="" class="small" title="Add Passenger Large Plane" ng-click='add_plane({"type": "Passenger", "size": "Large"})'>P-L</a>
+		&nbsp;
+		<a href="" class="small" title="Add Passenger Small Plane" ng-click='add_plane({"type": "Passenger", "size": "Small"})'>P-S</a>
+		&nbsp;
+		<a href="" class="small" title="Add Cargo Large Plane" ng-click='add_plane({"type": "Cargo", "size": "Large"})'>C-L</a>
+		&nbsp;
+		<a href="" class="small" title="Add Cargo Small Plane" ng-click='add_plane({"type": "Cargo", "size": "Small"})'>C-S</a>
+		&nbsp;
+		<a href="" class="small" title="Add 10 Random Planes" ng-click="add_random_planes(10)">+10</a>
+	</h3>
+	<ul>
+		<li class="noselect slide" ng-repeat="item in list.waiting|limitTo:20" ng-attr-style="background-color: rgb({{item.rgb}});" ng-click="$parent.land(item);">
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">{{item.type}} {{ item.size }}</div>
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Time = {{item.date|date:"yyyy-MM-dd hh:mm:ss"}}</div>
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Rank = {{item.rank}}</div>
+		</li>
+	</ul>
+</div>
+
+<div class="column column-clickable">
+	<h3>Landing</h3>
+	<ul>
+		<li class="noselect slide" ng-repeat="item in list.landing" ng-attr-style="background-color: rgb({{item.rgb}});" ng-click="$parent.arrive(item);">
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">{{item.type}} {{ item.size }}</div>
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Time = {{item.date|date:"yyyy-MM-dd hh:mm:ss"}}</div>
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Status = {{item.status}}</div>
+		</li>
+	</ul>
+</div>
+
+<div class="column">
+	<h3>Arrived</h3>
+	<ul>
+		<li class="noselect" ng-repeat="item in list.arrived.slice().reverse()|limitTo:20" ng-attr-style="background-color: rgb({{item.rgb}});">
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">{{item.type}} {{ item.size }}</div>
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Time = {{item.date|date:"yyyy-MM-dd hh:mm:ss"}}</div>
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Status = {{item.status}}</div>
+		</li>
+	</ul>
+</div>
+
+<div style="clear: both;">
+</div>
