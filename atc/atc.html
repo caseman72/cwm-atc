@@ -20,9 +20,13 @@
 	</h3>
 	<ul>
 		<li class="noselect slide" ng-repeat="item in list.waiting|limitTo:20" ng-attr-style="background-color: rgb({{item.rgb}});" ng-click="$parent.land(item);">
-			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">{{item.type}} {{ item.size }}</div>
-			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Time = {{item.date|date:"yyyy-MM-dd hh:mm:ss"}}</div>
-			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Rank = {{item.rank}}</div>
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">
+				{{item.type}} {{ item.size }}
+				<br/>
+				Time = {{item.date|date:"yyyy-MM-dd hh:mm:ss"}}
+				<br/>
+				Rank = {{item.rank}}
+			</div>
 		</li>
 	</ul>
 </div>
@@ -31,9 +35,13 @@
 	<h3>Landing</h3>
 	<ul>
 		<li class="noselect slide" ng-repeat="item in list.landing" ng-attr-style="background-color: rgb({{item.rgb}});" ng-click="$parent.arrive(item);">
-			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">{{item.type}} {{ item.size }}</div>
-			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Time = {{item.date|date:"yyyy-MM-dd hh:mm:ss"}}</div>
-			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Status = {{item.status}}</div>
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">
+				{{item.type}} {{ item.size }}
+				<br/>
+				Time = {{item.date|date:"yyyy-MM-dd hh:mm:ss"}}
+				<br/>
+				Status = {{item.status}}
+			</div>
 		</li>
 	</ul>
 </div>
@@ -42,9 +50,13 @@
 	<h3>Arrived</h3>
 	<ul>
 		<li class="noselect" ng-repeat="item in list.arrived.slice().reverse()|limitTo:20" ng-attr-style="background-color: rgb({{item.rgb}});">
-			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">{{item.type}} {{ item.size }}</div>
-			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Time = {{item.date|date:"yyyy-MM-dd hh:mm:ss"}}</div>
-			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">Status = {{item.status}}</div>
+			<div ng-attr-style="color: rgb({{item.inverted_rgb}});">
+				{{item.type}} {{ item.size }}
+				<br/>
+				Time = {{item.date|date:"yyyy-MM-dd hh:mm:ss"}}
+				<br/>
+				Status = {{item.status}}
+			</div>
 		</li>
 	</ul>
 </div>

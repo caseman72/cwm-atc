@@ -6,7 +6,7 @@ ng
 
 	.config(["$routeProvider", function($routeProvider) {
 		$routeProvider.when("/atc", {
-			templateUrl: "atc/atc.html?v=0.0.6",
+			templateUrl: "atc/atc.html?v=0.0.7",
 			controller: "AtcCtrl"
 		});
 	}])
