@@ -94,6 +94,7 @@
 		/* integer */
 		enumerable: true,
 		get: function() {
+			// type ~ then ~ size ~ then ~ time (as a decimal)
 			return (100 * (1+this.type_index)) + (10 * (1+this.size_index)) + (this.time/1E13)
 		}
 	});
@@ -126,7 +127,6 @@
 		}
 	});
 
-
 	// http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
 	var guid = function() {
 		return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
@@ -135,7 +135,7 @@
 		});
 	};
 
-	// epoch ms rounded to minute (math: 60s = 60E3 ms = 1 minute)
+	// epoch ms rounded down to the minute (math: 60s = 60E3 ms = 1 minute)
 	var epoch_rounded_to_minute = function() {
 		return Math.floor((new Date()).getTime() / 60E3) * 60E3;
 	};

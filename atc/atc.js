@@ -44,7 +44,6 @@ ng
 			$scope.reset_messages();
 		};
 
-
 		$scope.reset_messages = function() {
 			ng.forEach($scope.error, function(val, key) {
 				if (val) {
@@ -58,7 +57,6 @@ ng
 				}
 			});
 		};
-
 
 		$scope.land = function(plane) {
 			$scope.reset_messages();
@@ -92,7 +90,6 @@ ng
 				$scope.list.arrived.splice(0, arrived_length - 1000);
 			}
 		};
-
 
 		// filter all planes for waiting ...
 		// NB: this could slow down so we should garbage collect/remove the old "Arrived" planes (see above todo)
