@@ -76,22 +76,36 @@ ng
 			$scope.reset_messages();
 
 			plane.status = "Arrived";
-			$scope.list.landing.splice($scope.list.landing.indexOf(plane), 1); // remove from landing
 
+			// remove from landing
+			$scope.list.landing.splice($scope.list.landing.indexOf(plane), 1);
+
+			// add to arrived
 			$scope.list.arrived.push(plane);
+
 			// reduce this to 1K if too big ~ note that they are pointers to planes objects
 			var arrived_length = $scope.list.arrived.length;
 			if (arrived_length > 1000) {
+				//
+				// todo ~ before removing here find in $scope.list.planes and remove to keep planes manageable
+				//
 				$scope.list.arrived.splice(0, arrived_length - 1000);
 			}
 		};
 
+
+		// filter all planes for waiting ...
+		// NB: this could slow down so we should garbage collect/remove the old "Arrived" planes (see above todo)
 		Object.defineProperty($scope.list, "waiting", {
 			get: function() {
 				return $filter("orderBy") (
 					$filter("filter") (
-						$scope.list.planes, function(plane) { return plane.status === "Waiting"; }
-					), "rank"
+						$scope.list.planes,
+						function(plane) {
+							return plane.status === "Waiting";
+						}
+					),
+					"rank"
 				)
 			}
 		});
